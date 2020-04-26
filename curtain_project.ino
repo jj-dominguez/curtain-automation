@@ -12,8 +12,8 @@ const int stepPin = 11;
 const int dirPin = 12;
 const int enablePin = 10;
 
-boolean onTime = false;  //a variable that we will use to determine if we want to activate the curtain based on a time
-boolean opened = false;  //keep track if we are open or closed
+//boolean onTime = false;  //a variable that we will use to determine if we want to activate the curtain based on a time
+boolean opened = true;  //keep track if we are open or closed
 
 
 // Setup Function
@@ -33,6 +33,7 @@ void loop() {
   if (irrecv.decode(&results)) // have we received an IR signal?
 
   {
+    
     switch(results.value)
 
     {
@@ -73,7 +74,6 @@ void openCurtain(){
     delayMicroseconds(2);
     opened = true;
   }
-   
 }
 
 void closeCurtain(){
